@@ -10,7 +10,14 @@
 
 body {
     background: linear-gradient(to right, #FF8473, #FFF9D2);
-    overflow: scroll;
+    overflow: auto;
+    padding: 0;
+}
+h1 {
+    color: #262626;
+    font-size: larger;
+    align-content: center;
+    justify-content: center;
 }
 
 #header {
@@ -170,7 +177,6 @@ a.active,a:hover{
 .category-name {
     font-size: larger;
     font-weight: 300;
-    background-color: powderblue;
     width: max-content;
     z-index: 2;
 }
