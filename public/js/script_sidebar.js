@@ -14,3 +14,8 @@
                 closeIcon.style.display = "none";
             }
         });
+// const menuBtn = document.querySelector(".menu-button");
+
+// menuBtn.addEventListener("click", ()=> {
+//     document.body.classList.toggle("open");
+// })
