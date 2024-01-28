@@ -13,7 +13,7 @@ Routing::post('login', 'SecurityController');
 Routing::post('logout', 'SecurityController');
 Routing::post('addProjects', 'RecipeController');
 Routing::get('menu', 'DefaultController');
-//Routing::post('addUser', 'RegistrationController');
+Routing::post('register', 'SecurityController');
 
 
 

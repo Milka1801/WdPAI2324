@@ -2,7 +2,7 @@
 
 require_once __DIR__.'/../../Database.php';
 
-class Repository {
+class repository {
     protected $database;
 
     public function __construct()

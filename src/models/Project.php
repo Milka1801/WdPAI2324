@@ -21,10 +21,6 @@ private $image;
         return $this->title;
     }
 
-
-
-
-
     public function setTitle(string $title)
     {
         $this->title = $title;

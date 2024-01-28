@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="public/css/style_login.css">
 
     <link rel="stylesheet" type="text/css" href="public/css/style_login.css">
+    <script type="text/javascript" src="./public/js/script.js" defer></script>
     <!--<script src="confirm_password.js"></script>  -->
     
     <title>Login Page</title>
@@ -17,11 +18,20 @@
 
     <div class="container" id="container">
         <div class="form-container sign-up">
-            <form id="registration"  >
+            <form id="registration" method="post" action="register"  >
+                <div class="messages">
+                    <?php
+                    if(isset($messages)){
+                        foreach($messages as $message) {
+                            echo $message;
+                        }
+                    }
+                    ?>
+                </div>
                 <h1>Create Account</h1>
                 
                 <span>Use your email for registeration</span>
-                <input type="text" placeholder="Name">
+                <input name="name" type="text" placeholder="Name">
                 <input type="email" placeholder="Email">
                 <input type="tel" placeholder="Mobile phone number">
                 <input type="password" placeholder="Password" id="password" required>

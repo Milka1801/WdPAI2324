@@ -100,6 +100,8 @@
 
 require_once 'AppController.php';
 require_once __DIR__ . '/../models/Project.php';
+require_once __DIR__ . '/../repository/RecipeRepository.php';
+
 
 class RecipeController extends AppController
 {
@@ -108,7 +110,16 @@ class RecipeController extends AppController
     const SUPPORTED_TYPES = ['image/png', 'image/jpeg'];
     const UPLOAD_DIRECTORY = '/../public/uploads/';
 
-    private $message = [];
+    private $messages = [];
+
+    private $projectRepository;
+
+    public function __construct()
+    {
+        parent::__construct();
+        $this->projectRepository = new RecipeRepository();
+    }
+
 
     public function addProjects()
     {
@@ -119,11 +130,12 @@ class RecipeController extends AppController
             );
 
             // TODO create new project object and save it in database
-            $project = new Project($_POST['title'], $_POST['description'], $_FILES['file']['name']);
+            $project = new Project($_POST['name'], $_POST['description'], $_FILES['file']['name']);
+            $this->projectRepository->addProjects($project);
 
-            return $this->render('project', ['messages' => $this->message]);
+            return $this->render('project', ['messages' => $this->messages, 'project'=>$project]);
         }
-        return $this->render('upload', ['messages' => $this->message]);
+        return $this->render('upload', ['messages' => $this->messages]);
     }
 
     private function validate(array $file): bool

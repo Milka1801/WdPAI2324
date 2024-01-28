@@ -316,7 +316,7 @@
                 <img src="public/uploads/<?= $project->getImage() ?>">
                 <?= $project->getTitle() ?>
                 <h3><?= $project->getTitle() ?></h3>
-                <p><?= $project->getCuisine() ?> &#127463</p>
+                <p> &#127463</p>
                 <article>
                     <section class="button-cook">
                         <a href="#" class="button comment-button">Comment</a>
