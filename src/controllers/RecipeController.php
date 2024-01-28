@@ -2,7 +2,7 @@
 //
 //require_once 'AppController.php';
 //require_once __DIR__ .'/../models/Project.php';
-//require_once __DIR__.'/../repository/ProjectRepository.php';
+//require_once __DIR__.'/../repository/RecipeRepository.php';
 //
 //
 //class RecipeController extends AppController {
@@ -16,7 +16,7 @@
 //    public function __construct()
 //    {
 //       parent::__construct();
-//        $this->projectRepository = new ProjectRepository();
+//        $this->projectRepository = new RecipeRepository();
 //    }
 //
 //

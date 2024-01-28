@@ -3,7 +3,7 @@
 require_once 'Repository.php';
 require_once __DIR__.'/../models/User.php';
 
-class ProjectRepository extends Repository
+class RecipeRepository extends Repository
 {
 
     public function getProject(string $id): ?Project
