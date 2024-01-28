@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link rel="stylesheet" href="public/css/style_login.css">
+
+    <link rel="stylesheet" type="text/css" href="public/css/style_login.css">
     <!--<script src="confirm_password.js"></script>  -->
     
     <title>Login Page</title>
@@ -15,7 +17,7 @@
 
     <div class="container" id="container">
         <div class="form-container sign-up">
-            <form>
+            <form id="registration"  >
                 <h1>Create Account</h1>
                 
                 <span>Use your email for registeration</span>
@@ -30,13 +32,23 @@
             </form>
         </div>
         <div class="form-container sign-in">
-            <form>
+            <form class="login" method="POST" action="login">
+                <div class="messages">
+                    <?php
+                    if(isset($messages)){
+                        foreach($messages as $message) {
+                            echo $message;
+                        }
+                    }
+                    ?>
+                </div>
+
                 <h1>Sign In</h1>
                 <span>Use your email password</span>
-                <input type="email" placeholder="Email">
-                <input type="password" placeholder="Password">
+                <input name="email" type="email" placeholder="Email">
+                <input name="password" type="password" placeholder="Password">
                 <a href="#">Forget Your Password?</a>
-                <button>Sign In</button>
+                <button type="submit">Sign In</button>
             </form>
         </div>
         <div class="toggle-container">
