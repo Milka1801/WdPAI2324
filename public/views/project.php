@@ -10,7 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Cookie&family=Roboto:ital@0;1&family=Rubik+80s+Fade&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
+    <title>PRZEPISY</title>
 
     <style>
 
@@ -121,10 +121,13 @@
             /* background-color: #FF8473; */
             background-color: #CEA0AA;
             display: flex;
-            justify-content: space-between;
+            justify-content: space-evenly;
             font-family: cursive, Verdana, Geneva, Tahoma, sans-serif;
             padding: 20px;
             gap: 20px;
+            flex-direction: row;
+            flex-wrap: wrap;
+            align-items: flex-start;
         }
         .my-recipes img{
             width: 100%;
@@ -282,6 +285,7 @@
 
 
     </style>
+
 </head>
 <body>
 
@@ -294,9 +298,13 @@
         <div id="sidebar-header">
             <h2>Culinary Horizons</h2>
         </div>
-        <a href="#">Poland</a>
-        <a href="#">Italy</a>
-        <a href="#">China</a>
+        <a class="upload-a" href="/logout">Logout</a>
+        <a class="upload-a" href="/projects">Main Page</a>
+        <a class="upload-a" href="/menu">Country search</a>
+        <a class="upload-a" href="/addProjects">Upload Recipe</a>
+        <a class="upload-a" href="/zurek">Poland</a>
+        <a class="upload-a" href="#">Italy</a>
+        <a class="upload-a" href="#">China</a>
 
     </div>
 
@@ -310,11 +318,15 @@
 
 <main>
     <h2>My Recipes</h2>
-    <div class="my-recipes">
+<!--    --><?php //var_dump($projects) ?>
 
+
+
+    <div class="my-recipes">
+        <?php foreach ($projects as $project): ?>
             <div class="menu-one-forth">
                 <img src="public/uploads/<?= $project->getImage() ?>">
-                <?= $project->getTitle() ?>
+
                 <h3><?= $project->getTitle() ?></h3>
                 <p> &#127463</p>
                 <article>
@@ -325,8 +337,9 @@
                     <p><?= $project->getDescription() ?></p>
                 </article>
             </div>
-
+        <?php endforeach; ?>
     </div>
+
 </main>
 
 <!-- ... (remaining HTML code) ... -->

@@ -5,15 +5,33 @@ class User {
     private $password;
     private $name;
     private $surname;
+    private $role;
 
     public function __construct(
         string $email,
         string $password,
-        string $name
+        string $name,
+        string $surname = null,
+        string $role='user'
     ) {
         $this->email = $email;
-        $this->password = $password;
+        $this->password=$password;
         $this->name = $name;
+        $this->surname = $surname;
+
+        // Ustaw rolę na "user" tylko gdy nie podano innej roli
+        $this->role = $role ?: 'user';
+    }
+
+
+    public function getRole(): string
+    {
+        return $this->role;
+    }
+
+    public function setRole(string $role): void
+    {
+        $this->role = $role;
     }
 
     public function getName(): string
@@ -46,7 +64,5 @@ class User {
     {
         $this->password = $password;
     }
-
-
-
 }
+?>

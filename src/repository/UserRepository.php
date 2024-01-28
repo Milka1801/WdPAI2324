@@ -3,18 +3,20 @@
 require_once 'Repository.php';
 require_once __DIR__.'/../models/User.php';
 
-class UserRepository extends repository
+class UserRepository extends Repository
 {
 
     public function getUser(string $email): ?User
     {
         $stmt = $this->database->connect()->prepare('
-            SELECT * FROM public.users WHERE email = :email
-        ');
+        SELECT * FROM public.users WHERE email = :email
+    ');
         $stmt->bindParam(':email', $email, PDO::PARAM_STR);
         $stmt->execute();
 
         $user = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        //var_dump($user); // Dodaj to, aby zobaczyć, co jest przechowywane w $user
 
         if ($user == false) {
             return null;
@@ -23,10 +25,11 @@ class UserRepository extends repository
         return new User(
             $user['email'],
             $user['password'],
-            $user['name']
-
+            $user['name'],
+            $user['role']
         );
     }
+
 
     public function addUser(User $user): bool
     {
@@ -45,6 +48,5 @@ class UserRepository extends repository
 
         return $stmt->execute();
     }
-
-
 }
+?>

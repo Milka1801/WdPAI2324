@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="public/css/style_login.css">
 
     <link rel="stylesheet" type="text/css" href="public/css/style_login.css">
-    <script type="text/javascript" src="./public/js/script.js" defer></script>
+<!--    <script type="text/javascript" src="./public/js/script.js" defer></script>-->
     <!--<script src="confirm_password.js"></script>  -->
     
     <title>Login Page</title>

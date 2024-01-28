@@ -10,23 +10,23 @@ class DefaultController extends AppController
         $this->render('login');
     }
 
-    public function projects()
-    {
-        $this->render('projects');
-    }
+
     public function zurek()
     {
         $this->render('zurek');
     }
-    public function myRecipes()
+    public function myRecipe()
     {
-        $this->render('myRecipes');
+        $this->render('project');
     }
     public function menu()
     {
         $this->render('menu');
     }
-
+    public function admin()
+    {
+        $this->render('admin');
+    }
 
 }
 //    public function menu()

@@ -120,6 +120,11 @@ class RecipeController extends AppController
         $this->projectRepository = new RecipeRepository();
     }
 
+    public function projects()
+    {
+        $projects = $this->projectRepository->getProjects();
+        $this->render('projects', ['projects' => $projects]);
+    }
 
     public function addProjects()
     {
@@ -133,10 +138,13 @@ class RecipeController extends AppController
             $project = new Project($_POST['name'], $_POST['description'], $_FILES['file']['name']);
             $this->projectRepository->addProjects($project);
 
-            return $this->render('project', ['messages' => $this->messages, 'project'=>$project]);
+            $projects = $this->projectRepository->getProjects(); // Pobierz projekty po dodaniu nowego projektu
+
+            return $this->render('project', ['messages' => $this->messages, 'projects' => $projects]); // Zmień 'project' na 'projects'
         }
         return $this->render('upload', ['messages' => $this->messages]);
     }
+
 
     private function validate(array $file): bool
     {
