@@ -16,17 +16,16 @@ class RecipeRepository extends repository
 
         $project = $stmt->fetch(PDO::FETCH_ASSOC);
 
-        if ($project == false) {
+        if ($project == false || !isset($project['title']) || !isset($project['description']) || !isset($project['image'])) {
             return null;
         }
 
         return new Project(
-            $recipe['title'],
-            $recipe['description'],
-            $recipe['image']
-
-
+            $project['title'],
+            $project['description'],
+            $project['image']
         );
+
     }
 
 //    public function addUser(User $user): bool
@@ -64,25 +63,28 @@ class RecipeRepository extends repository
         ]);
     }
 
-//    public function getProjects(): array
-//    {
-//        $result = [];
-//
-//        $stmt = $this->database->connect()->prepare('
-//        SELECT * FROM recipe
-//        ');
-//        $stmt->execute();
-//        $myRecipes = $stmt->fetchAll(PDO::FETCH_ASSOC);
-//
-//        foreach($myRecipes as $recipe) {
-//            $result[] = new Project(
-//                $recipe['title'],
-//                $recipe['description'],
-//                $recipe['image']
-//            );
-//        }
-//        return $result;
-//    }
+    public function getProjects(): array
+    {
+        $result = [];
+
+        $stmt = $this->database->connect()->prepare('
+            SELECT * FROM recipe;
+        ');
+        $stmt->execute();
+        $projects = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        foreach ($projects as $project) {
+            $result[] = new Project(
+                $project['name'],         // Zamiast $project['title']
+                $project['description'],  // Zamiast $project['description']
+                $project['file_path']     // Zamiast $project['image']
+            );
+        }
+
+
+        return $result;
+    }
+
 
 
 

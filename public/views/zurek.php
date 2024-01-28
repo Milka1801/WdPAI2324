@@ -133,7 +133,7 @@
         <a href="/projects">Main Page</a>
         <a href="/menu">Country search</a>
         <a href="/addProjects">Upload Recipe</a>
-        <a href="/project">My Recipes</a>
+        <a href="/addProjects#">My Recipes</a>
         <a href="/zurek">Poland</a>
         <a href="#">Italy</a>
         <a href="#">China</a>
