@@ -1,56 +1,39 @@
-# WdPAI2324
-# Project Name
+# Culinary Horizons Review Repository (Web Application)
 
-A concise description of your web application.
+Welcome to the Culinary Horizons Review Repository project! This web application is designed to facilitate the sharing and management of culinary recipes, allowing users to add, delete, comment on recipes, and explore recipes shared by other users.
 
 ## Table of Contents
+1. [Project Overview](#project-overview)
+2. [Key Features](#key-features)
+3. [Technologies Utilized](#technologies-utilized)
 
-- [Introduction](#introduction)
-- [Features](#features)
-- [Demo](#demo)
-- [Getting Started](#getting-started)
-  - [Prerequisites](#prerequisites)
-  - [Installation](#installation)
-- [Usage](#usage)
-- [Technologies Used](#technologies-used)
-- [Contributing](#contributing)
-- [License](#license)
+## Project Overview
+The Culinary Horizons Review Repository empowers users to contribute and engage with culinary recipes. Users can seamlessly add their own recipes, delete them as needed, and provide comments to enhance the cooking experience. Furthermore, users have the opportunity to explore and discover recipes shared by fellow culinary enthusiasts.
 
-## Introduction
+## Key Features
+1. **Recipe Management:**
+   - Users can effortlessly add new recipes to the repository and delete recipes when necessary.
 
-Provide an introductory section that briefly describes your web application. Explain its purpose and what problem it solves. You can also mention the target audience or user base.
+2. **Interactive Comments:**
+   - Enhance recipe sharing by leaving comments to provide feedback, suggestions, or ask questions.
 
-## Features
+3. **User Authentication:**
+   - Secure registration and login system to ensure user privacy and data integrity.
 
-List and describe the key features of your web application. This section helps users understand what your application can do.
+4. **Recipe Exploration:**
+   - Browse through a diverse collection of recipes contributed by other users to discover new culinary delights.
 
-- Feature 1: Description
-- Feature 2: Description
-- Feature 3: Description
+## Technologies Utilized
+The project leverages a variety of technologies to deliver a seamless user experience:
 
-## Demo
+**Frontend:**
+- HTML, CSS, JavaScript
 
-Include a link to a live demo or a screenshot/gif of your web application in action.
+**Backend:**
+- Server-side programming language (PHP)
 
-[Live Demo](https://yourappdemo.com)
+**Database:**
+- Relational database management system (PostgreSQL)
 
-![Screenshot](screenshots/screenshot.png)
-
-## Getting Started
-
-Explain how users can get started with your web application.
-
-### Prerequisites
-
-List any prerequisites or dependencies that users need to have in place before they can use your application.
-
-### Installation
-
-Provide step-by-step installation instructions if applicable. This may include setting up a development environment, installing dependencies, or configuring settings.
-
-```bash
-# Example installation steps
-$ git clone https://github.com/yourusername/yourwebapp.git
-$ cd yourwebapp
-$ npm install
-$ npm start
+**Containerization:**
+- Docker
