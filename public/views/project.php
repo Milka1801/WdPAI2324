@@ -311,9 +311,10 @@
 <main>
     <h2>My Recipes</h2>
     <div class="my-recipes">
-        <?php foreach ($projects as $project): ?>
+
             <div class="menu-one-forth">
-                <img src="public/uploads/<?= $project->getImage() ?>" alt="<?= $project->getTitle() ?>">
+                <img src="public/uploads/<?= $project->getImage() ?>">
+                <?= $project->getTitle() ?>
                 <h3><?= $project->getTitle() ?></h3>
                 <p><?= $project->getCuisine() ?> &#127463</p>
                 <article>
@@ -324,7 +325,7 @@
                     <p><?= $project->getDescription() ?></p>
                 </article>
             </div>
-        <?php endforeach; ?>
+
     </div>
 </main>
 

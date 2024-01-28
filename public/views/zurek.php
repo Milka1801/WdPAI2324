@@ -29,7 +29,8 @@
         }
 
         #menu-button {
-            background-color: #4CAF50;
+            /* background-color: #4CAF50; */
+            background-color: #E9C2C5;
             color: white;
             border: none;
             padding: 10px 15px;

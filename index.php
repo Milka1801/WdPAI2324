@@ -11,7 +11,7 @@ Routing::get('myRecipes', 'DefaultController');
 Routing::get('zurek', 'DefaultController');
 Routing::post('login', 'SecurityController');
 Routing::post('logout', 'SecurityController');
-Routing::post('addProjects', 'ProjectController');
+Routing::post('addProjects', 'RecipeController');
 Routing::get('menu', 'DefaultController');
 //Routing::post('addUser', 'RegistrationController');
 
