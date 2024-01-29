@@ -1,7 +1,16 @@
+<?php
 
+if (!isset($_SESSION['user'])) {
+    header("Location: login");
+    exit();
+}
+$userName = $_SESSION['user']['name'];
+$userEmail = $_SESSION['user']['email'];
+//$userType = $_SESSION['user']['type'];
+?>
 <!DOCTYPE html>
 <html lang="en">
-<head>
+<script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Main Page</title>
@@ -10,7 +19,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Cookie&family=Roboto:ital@0;1&family=Rubik+80s+Fade&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <title>PRZEPISY</title>
+        <script type="text/javascript" src="./public/js/search.js" defer></script>
+
+<title>PRZEPISY</title>
 
     <style>
 
@@ -298,7 +309,7 @@
         <div id="sidebar-header">
             <h2>Culinary Horizons</h2>
         </div>
-        <a class="upload-a" href="/logout">Logout</a>
+        <a class="upload-a" href="/logout">Log out</a>
         <a class="upload-a" href="/projects">Main Page</a>
         <a class="upload-a" href="/menu">Country search</a>
         <a class="upload-a" href="/addProjects">Upload Recipe</a>
@@ -317,6 +328,9 @@
 <!-- ... (previous HTML code) ... -->
 
 <main>
+    <div class="search-bar">
+        <input placeholder="search project">
+    </div>
     <h2>My Recipes</h2>
 <!--    --><?php //var_dump($projects) ?>
 
@@ -328,7 +342,7 @@
                 <img src="public/uploads/<?= $project->getImage() ?>">
 
                 <h3><?= $project->getTitle() ?></h3>
-                <p> &#127463</p>
+
                 <article>
                     <section class="button-cook">
                         <a href="#" class="button comment-button">Comment</a>
@@ -342,33 +356,22 @@
 
 </main>
 
-<!-- ... (remaining HTML code) ... -->
 
-<footer class="page-footer menu">
-    <ul>
-        <li><a href="#">Regulamin</a></li>
-        <li><a href="#">O nas</a></li>
-        <li><a href="#">Blog</a></li>
-        <li><a href="#">Kontakt</a></li>
-    </ul>
-</footer>
 </body>
-<script>
-    document.getElementById('menu-button').addEventListener('click', function () {
-        var sidebar = document.getElementById('sidebar');
-        var menuIcon = document.getElementById('menu-icon');
-        var closeIcon = document.getElementById('close-icon');
+<template id="project-template">
+    <div class="menu-one-forth">
+        <img src="">
 
-        if (sidebar.style.left === "-250px") {
-            sidebar.style.left = "0";
-            menuIcon.style.display = "none";
-            closeIcon.style.display = "block";
-        } else {
-            sidebar.style.left = "-250px";
-            menuIcon.style.display = "block";
-            closeIcon.style.display = "none";
-        }
-    });
-</script>
+        <h3>Title</h3>
+
+            <p>Description</p>
+
+    </div>
+</template>
+<script src="public/js/script_sidebar.js"></script>
+
 </html>
+
+
+
 

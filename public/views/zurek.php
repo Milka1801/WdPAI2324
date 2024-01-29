@@ -1,3 +1,14 @@
+<?php
+
+if (!isset($_SESSION['user'])) {
+    header("Location: login");
+    exit();
+}
+$userName = $_SESSION['user']['name'];
+//$userSurname = $_SESSION['user']['surname'];
+$userEmail = $_SESSION['user']['email'];
+//$userType = $_SESSION['user']['type'];
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,7 +20,7 @@
           integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
           crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-    <link rel="stylesheet" href="public/css/style_menu.css">
+    <link rel="stylesheet" href="public/css/main_style.css">
 
     <style>
         body {
@@ -130,6 +141,7 @@
         <div id="sidebar-header">
             <h2>Culinary Horizons</h2>
         </div>
+        <a href="/logout">Log out</a>
         <a href="/projects">Main Page</a>
         <a href="/menu">Country search</a>
         <a href="/addProjects">Upload Recipe</a>
@@ -152,57 +164,63 @@
     <div class="recipe-details">
         <img src="https://i0.wp.com/zjemto.pl/wp-content/uploads/2014/04/DSC_1699.jpg?fit=585%2C530&ssl=1" alt="">
         <p><strong>Category:</strong> Polish</p>
-        <p><strong>Ingredients:</strong> Tomatoes, mozzarella, basil, olive oil, salt, and pizza dough.</p>
-        <p><strong>Instructions:</strong> Preheat the oven, roll out the dough, add toppings, and bake until golden brown.</p>
+        <p><strong>Ingredients:</strong> 1 kg white sausage
+            <li>3-4 hard-boiled eggs</li>
+            <li>2 onions</li>
+            <li>3 cloves of garlic</li>
+            <li>1 tablespoon butter</li>
+            <li>2 tablespoons wheat flour</li>
+            <li>2-3 tablespoons vinegar</li>
+            <li>2 teaspoons salt</li>
+            <li>1 teaspoon pepper</li>
+            <li>1 teaspoon marjoram</li>
+            <li>2 bay leaves</li>
+            <li>A few grains of allspice</li>
+            <li>3-4 slices of rye bread</li></p>
+        <p><strong>Instructions:</strong>
+            <li>Slice the sausage.</li>
+            <li>Peel and chop the eggs.</li>
+            <li>Chop the onions and garlic, then sauté them in butter in a large pot.</li>
+            <li>Add the flour, stir, and sauté for a few minutes.</li>
+            <li>Pour 2 liters of water into the pot.</li>
+            <li>Add vinegar, salt, pepper, marjoram, bay leaves, allspice, sliced sausage, and eggs.</li>
+            <li>Simmer over low heat for about 30-40 minutes.</li>
+            <li>Serve with slices of rye bread.</li>
+        </p>
     </div>
 </div>
-<div class="mv-create-ingredients">
-    <h3 class="mv-create-ingredients-title mv-create-title-secondary">Ingredients</h3>
+<!--<div class="mv-create-ingredients">-->
+<!--    <h3 class="mv-create-ingredients-title mv-create-title-secondary">Ingredients</h3>-->
+<!---->
+<!--    <ul>-->
+<!--        <li>1 kg white sausage</li>-->
+<!--        <li>7 oz (200g) unsliced bacon</li>-->
+<!--        <li>1 (200g, 7 oz) medium white onion</li>-->
+<!--        <li>2 medium carrots (roughly 4.2 oz, 120g)</li>-->
+<!--        <li>2 parsley roots (roughly 4.2 oz, 120g) - can be substituted for a celery root)</li>-->
+<!--        <li>4 links (500g, 1.1 lb) white kiełbasa sausage (fresh, uncooked)</li>-->
+<!--        <li>2 ¼ cups (500ml) Sour Rye Flour Starter&nbsp;(link to a recipe in the notes)</li>-->
+<!--        <li>1 garlic clove</li>-->
+<!--        <li>3 tbsp whipping cream (optional, 30-36% fat)</li>-->
+<!--        <li>1 tbsp dried marjoram</li>-->
+<!--        <li>Salt to taste</li>-->
+<!--        <li>Pepper (freshly ground) to taste</li>-->
+<!--    </ul>-->
+<!--    <h4>If using a homemade 'zakwas' fermented without spices:</h4>-->
+<!--    <ul>-->
+<!--        <li>4 bay leaves</li>-->
+<!--        <li>5 all-spice berries</li>-->
+<!--        <li>5 black peppercorns</li>-->
+<!--    </ul>-->
+<!--    <h4>To serve:</h4>-->
+<!--    <ul>-->
+<!--        <li>4 boiled eggs, halved</li>-->
+<!--        <li>Fresh marjoram to garnish</li>-->
+<!--    </ul>-->
+<!--</div>-->
 
-    <ul>
-        <li>8.5 cups (2 litres, 0.5 gallon) meat stock (chicken, mixed-meat, rosół works great too)</li>
-        <li>7 oz (200g) unsliced bacon</li>
-        <li>1 (200g, 7 oz) medium white onion</li>
-        <li>2 medium carrots (roughly 4.2 oz, 120g)</li>
-        <li>2 parsley roots (roughly 4.2 oz, 120g) - can be substituted for a celery root)</li>
-        <li>4 links (500g, 1.1 lb) white kiełbasa sausage (fresh, uncooked)</li>
-        <li>2 ¼ cups (500ml) Sour Rye Flour Starter&nbsp;(link to a recipe in the notes)</li>
-        <li>1 garlic clove</li>
-        <li>3 tbsp whipping cream (optional, 30-36% fat)</li>
-        <li>1 tbsp dried marjoram</li>
-        <li>Salt to taste</li>
-        <li>Pepper (freshly ground) to taste</li>
-    </ul>
-    <h4>If using a homemade 'zakwas' fermented without spices:</h4>
-    <ul>
-        <li>4 bay leaves</li>
-        <li>5 all-spice berries</li>
-        <li>5 black peppercorns</li>
-    </ul>
-    <h4>To serve:</h4>
-    <ul>
-        <li>4 boiled eggs, halved</li>
-        <li>Fresh marjoram to garnish</li>
-    </ul>
-</div>
+<script src="public/js/script_sidebar.js"></script>
 
-<script>
-    document.getElementById('menu-button').addEventListener('click', function () {
-        var sidebar = document.getElementById('sidebar');
-        var menuIcon = document.getElementById('menu-icon');
-        var closeIcon = document.getElementById('close-icon');
-
-        if (sidebar.style.left === "-250px") {
-            sidebar.style.left = "0";
-            menuIcon.style.display = "none";
-            closeIcon.style.display = "block";
-        } else {
-            sidebar.style.left = "-250px";
-            menuIcon.style.display = "block";
-            closeIcon.style.display = "none";
-        }
-    });
-</script>
 </body>
 
 </html>

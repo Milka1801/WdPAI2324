@@ -31,22 +31,36 @@ class UserRepository extends Repository
     }
 
 
-    public function addUser(User $user): bool
+//    public function addUser(User $user): bool
+//    {
+//        $stmt = $this->database->connect()->prepare('
+//            INSERT INTO users (email, password, name)
+//            VALUES (:email, :password, :name)
+//        ');
+//
+//        $email = $user->getEmail();
+//        $password = $user->getPassword();
+//        $name = $user->getName();
+//
+//        $stmt->bindParam(':email', $email, PDO::PARAM_STR);
+//        $stmt->bindParam(':password', $password, PDO::PARAM_STR);
+//        $stmt->bindParam(':name', $name, PDO::PARAM_STR);
+//
+//        return $stmt->execute();
+//    }
+
+    public function addUser(User $user)
     {
-        $stmt = $this->database->connect()->prepare('
-            INSERT INTO users (email, password, name)
-            VALUES (:email, :password, :name)
-        ');
+        $pdo = $this->database->connect();
 
-        $email = $user->getEmail();
-        $password = $user->getPassword();
-        $name = $user->getName();
+        $stmtUserDetail = $pdo->prepare('INSERT INTO users (name, email, password) VALUES (?, ?, ?)');
 
-        $stmt->bindParam(':email', $email, PDO::PARAM_STR);
-        $stmt->bindParam(':password', $password, PDO::PARAM_STR);
-        $stmt->bindParam(':name', $name, PDO::PARAM_STR);
+        $stmtUserDetail->execute([
+            $user->getName(),
+            $user->getEmail(),
+            $user->getPassword(),
 
-        return $stmt->execute();
+        ]);
     }
 }
 ?>

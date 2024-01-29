@@ -1,3 +1,14 @@
+<?php
+
+if (!isset($_SESSION['user'])) {
+    header("Location: login");
+    exit();
+}
+$userName = $_SESSION['user']['name'];
+//$userSurname = $_SESSION['user']['surname'];
+$userEmail = $_SESSION['user']['email'];
+//$userType = $_SESSION['user']['type'];
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -250,7 +261,7 @@
         <div id="sidebar-header">
             <h2>Culinary Horizons</h2>
         </div>
-        <a href="/logout">Logout</a>
+        <a href="/logout">Log out</a>
         <a href="/projects">Main Page</a>
         <a href="/menu">Country search</a>
         <a href="/addProjects">Upload Recipe</a>
@@ -270,9 +281,10 @@
 <div class="search-center">
     <form class="search1" action="/action_page.php">
         <input type="text" placeholder=" Find a country" name="search">
-        <button type="submit"><i class="fa fa-search"></i></button>
+<!--        <button type="submit"><i class="fa fa-search"></i></button>-->
     </form>
 </div>
+
 
 
 <div class="category">
@@ -361,25 +373,7 @@
     </div>
 </div>
 
+<script src="public/js/script_sidebar.js"></script>
 
-
-<!-- <script src="script_sidebar.js"></script> -->
-<script>
-    document.getElementById('menu-button').addEventListener('click', function () {
-        var sidebar = document.getElementById('sidebar');
-        var menuIcon = document.getElementById('menu-icon');
-        var closeIcon = document.getElementById('close-icon');
-
-        if (sidebar.style.left === "-250px") {
-            sidebar.style.left = "0";
-            menuIcon.style.display = "none";
-            closeIcon.style.display = "block";
-        } else {
-            sidebar.style.left = "-250px";
-            menuIcon.style.display = "block";
-            closeIcon.style.display = "none";
-        }
-    });
-</script>
 </body>
 </html>

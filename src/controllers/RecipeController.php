@@ -141,11 +141,25 @@ class RecipeController extends AppController
             $projects = $this->projectRepository->getProjects(); // Pobierz projekty po dodaniu nowego projektu
 
             return $this->render('project', ['messages' => $this->messages, 'projects' => $projects]); // Zmień 'project' na 'projects'
+
         }
         return $this->render('upload', ['messages' => $this->messages]);
     }
 
+    public function search()
+    {
+        $contentType = isset($_SERVER["CONTENT_TYPE"]) ? trim($_SERVER["CONTENT_TYPE"]) : '';
 
+        if ($contentType === "application/json") {
+            $content = trim(file_get_contents("php://input"));
+            $decoded = json_decode($content, true);
+
+            header('Content-type: application/json');
+            http_response_code(200);
+
+            echo json_encode($this->projectRepository->getProjectByTitle($decoded['search']));
+        }
+    }
     private function validate(array $file): bool
     {
         if ($file['size'] > self::MAX_FILE_SIZE) {
@@ -159,4 +173,5 @@ class RecipeController extends AppController
         }
         return true;
     }
+
 }

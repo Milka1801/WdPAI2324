@@ -1,6 +1,7 @@
 <?php
 
 class User {
+    private $id;
     private $email;
     private $password;
     private $name;
@@ -8,12 +9,14 @@ class User {
     private $role;
 
     public function __construct(
+        //int $id,
         string $email,
         string $password,
         string $name,
         string $surname = null,
-        string $role='user'
+        string $role='admin'
     ) {
+        //$this->id = $id;
         $this->email = $email;
         $this->password=$password;
         $this->name = $name;
@@ -21,6 +24,16 @@ class User {
 
         // Ustaw rolę na "user" tylko gdy nie podano innej roli
         $this->role = $role ?: 'user';
+    }
+
+    public function getId(): int
+    {
+        return $this->id;
+    }
+
+    public function setId(int $id): void
+    {
+        $this->id = $id;
     }
 
 

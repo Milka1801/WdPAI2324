@@ -1,4 +1,5 @@
-<!DOCTYPE html>
+
+    <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -56,7 +57,7 @@
 
         #header {
             /* background: #FFF9D2; */
-            background-color: #CEA0AA;
+            background-color: #FEE1DD;
             padding: 5px;
             font-family: "Cookie", cursive;
             display: flex;
@@ -233,6 +234,28 @@
             width: max-content;
             /* z-index: 2; */
         }
+        body {
+            background-color: black;
+            color: white;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            color: white;
+        }
+        th, td {
+            padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: #f2f2f2;
+            color: black;
+        }
+        h2 {
+            color: white;
+        }
 
 
 
@@ -266,25 +289,44 @@
     <h1>Culinary Horizon</h1>
 
 </header>
+<h2>Administrator Functions</h2>
 
+<table>
+    <tr>
+        <th>Function</th>
+        <th>Description</th>
+    </tr>
+    <tr>
+        <td>Manage Comments</td>
+        <td>Administrator can delete comments made by users.</td>
+    </tr>
+    <tr>
+        <td>Manage Users</td>
+        <td>Administrator can delete users' accounts.</td>
+    </tr>
+    <tr>
+        <td>Manage Recipes</td>
+        <td>Administrator can manage recipes, including adding, editing, and deleting them.</td>
+    </tr>
+</table>
 
-<div class="my-recipes">
-    <?php foreach ($projects as $project): ?>
-        <div class="menu-one-forth">
-            <img src="public/uploads/<?= $project->getImage() ?>">
-
-            <h3><?= $project->getTitle() ?></h3>
-            <p> &#127463</p>
-            <article>
-                <section class="button-cook">
-                    <a href="#" class="button comment-button">Comment</a>
-                    <a href="#" class="button cook-button">Cook!</a>
-                </section>
-                <p><?= $project->getDescription() ?></p>
-            </article>
-        </div>
-    <?php endforeach; ?>
-</div>
+<!--<div class="my-recipes">-->
+<!--    --><?php //foreach ($projects as $project): ?>
+<!--        <div class="menu-one-forth">-->
+<!--            <img src="public/uploads/--><?php //= $project->getImage() ?><!--">-->
+<!---->
+<!--            <h3>--><?php //= $project->getTitle() ?><!--</h3>-->
+<!--            <p> &#127463</p>-->
+<!--            <article>-->
+<!--                <section class="button-cook">-->
+<!--                    <a href="#" class="button comment-button">Comment</a>-->
+<!--                    <a href="#" class="button cook-button">Cook!</a>-->
+<!--                </section>-->
+<!--                <p>--><?php //= $project->getDescription() ?><!--</p>-->
+<!--            </article>-->
+<!--        </div>-->
+<!--    --><?php //endforeach; ?>
+<!--</div>-->
 
 
 

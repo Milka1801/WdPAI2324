@@ -16,6 +16,9 @@ Routing::post('addProjects', 'RecipeController');
 Routing::post('project', 'RecipeController');
 Routing::get('menu', 'DefaultController');
 Routing::post('register', 'SecurityController');
+Routing::get('profile_account', 'SecurityController');
+
+Routing::post('search', 'RecipeController');
 
 
 

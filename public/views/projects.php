@@ -1,3 +1,12 @@
+<?php
+if (!isset($_SESSION['user'])) {
+    header("Location: login");
+    exit();
+}
+$userName = $_SESSION['user']['name'];
+$userEmail = $_SESSION['user']['email'];
+$userRole = $_SESSION['user']['role'];
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -24,7 +33,7 @@
         <div id="sidebar-header">
             <h2>Culinary Horizons</h2>
         </div>
-        <a class="upload-a" href="/logout">Logout</a>
+        <a class="upload-a" href="/logout">Log out</a>
         <a class="upload-a" href="/projects">Main Page</a>
         <a class="upload-a" href="/menu">Country search</a>
         <a class="upload-a" href="/addProjects">Upload Recipe</a>
@@ -54,22 +63,18 @@
         <div class="advantages-one-third">
             <div class="column-advantage best-ingredients">
                 <div class="bottom-right">
-                    <a href="#" class="breakfast"> Breakfast </a>
                 </div>
             </div>
         </div>
         <div class="advantages-one-third">
             <div class="column-advantage original-recipe">
                 <div class="bottom-right">
-                    <a href="#" class="salads"> Salads </a>
                 </div>
             </div>
         </div>
         <div class="advantages-one-third">
             <div class="column-advantage fast-delivery">
                 <div class="bottom-right">
-
-                    <a href="#" class="snacks"> Appetizers<br>&<br>Snacks </a>
                 </div>
             </div>
         </div>
@@ -77,8 +82,8 @@
     <h2>Popular Dishes</h2>
     <div class="popular-menu">
         <div class="menu-one-forth">
-            <img src="https://i0.wp.com/zjemto.pl/wp-content/uploads/2014/04/DSC_1699.jpg?fit=585%2C530&ssl=1" alt="">
-            Zurek wielkanocny
+            <img class="recipe-image" src="https://i0.wp.com/zjemto.pl/wp-content/uploads/2014/04/DSC_1699.jpg?fit=585%2C530&ssl=1" alt="">
+            <p>Zurek wielkanocny</p>
             <article>
                 <p>Poland</p>
                 <section class="button-cook">
@@ -90,7 +95,7 @@
         </div>
         <div class="menu-one-forth">
             <img src="https://cdn.pixabay.com/photo/2019/11/23/15/26/ramen-4647408_1280.jpg" alt="">
-            Ramen
+            <p>Ramen</p>
             <article>
                 <p>Japan</p>
                 <section class="button-cook">
@@ -102,7 +107,7 @@
         </div>
         <div class="menu-one-forth">
             <img src="https://cdn.pixabay.com/photo/2017/06/21/22/44/paella-2428945_1280.jpg" alt="">
-            Paella
+            <p></p>Paella</p>
             <article>
                 <p>Italy</p>
                 <section class="button-cook">
@@ -115,7 +120,7 @@
         <div class="menu-one-forth">
             <img src="https://cdn.pixabay.com/photo/2019/02/20/01/12/feijoada-4008190_1280.jpg" alt="">
             <p>Brazil
-                &#127463
+
             </p>
             <article>
                 <p>Feijoada</p>
@@ -129,31 +134,8 @@
         </div>
     </div>
 </main>
-<footer class="page-footer menu">
-    <ul>
-        <li><a href="#">Regulamin</a></li>
-        <li><a href="#">O nas</a></li>
-        <li><a href="#">Blog</a></li>
-        <li><a href="#">Kontakt</a></li>
-    </ul>
-</footer>
 </body>
-<script>
-    document.getElementById('menu-button').addEventListener('click', function () {
-        var sidebar = document.getElementById('sidebar');
-        var menuIcon = document.getElementById('menu-icon');
-        var closeIcon = document.getElementById('close-icon');
 
-        if (sidebar.style.left === "-250px") {
-            sidebar.style.left = "0";
-            menuIcon.style.display = "none";
-            closeIcon.style.display = "block";
-        } else {
-            sidebar.style.left = "-250px";
-            menuIcon.style.display = "block";
-            closeIcon.style.display = "none";
-        }
-    });
-</script>
+<script src="public/js/script_sidebar.js"></script>
 </html>
 

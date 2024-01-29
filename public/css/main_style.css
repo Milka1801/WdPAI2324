@@ -97,7 +97,7 @@ h2 {
     font-family: cursive, Verdana, Geneva, Tahoma, sans-serif;
     padding: 20px;
     gap: 20px;
-
+    flex-wrap: wrap;
 }
 .my-recipes {
     margin-top: 15px;
@@ -109,21 +109,17 @@ h2 {
     padding: 20px;
     gap: 20px;
 }
-.my-recipes img{
-    width: 100%;
 
-}
 
 .menu-one-forth {
     flex-basis: 25%;
     text-align: center;
     font-size: 0.9rem;
 }
-
 .menu-one-forth img {
-    width: 100%;
+    width: fit-content;
+    max-height: 16em;
 }
-
 .page-footer {
     width: 100%;
     background-color: black;
@@ -276,5 +272,19 @@ a.active,a:hover{
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.recipe-image {
+    width: fit-content;
+    max-height: 16em;
+}
+.recipe-section {
+    width: 60%;
+    margin: 50px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: #cea0aaa1;
 }
 

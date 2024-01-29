@@ -1,3 +1,24 @@
+<?php
+
+//if(isset($_SESSION['logged']) && ($_SESSION['logged'] == true)){
+//    header("Location: login");
+//    exit();
+//}
+
+if (isset($_SESSION['logged']) && $_SESSION['logged'] == true) {
+    // Sprawdź, czy użytkownik jest administratorem
+    if (isset($_SESSION['user']['type']) && $_SESSION['user']['type'] == 'admin') {
+        // Przekieruj na stronę admina
+        header("Location: admin");
+        exit();
+    }
+    // Jeśli nie jest administratorem, kontynuuj normalnie
+    else {
+            header("Location: login");
+            exit();
+    }
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -17,30 +38,30 @@
 <body>
 
     <div class="container" id="container">
-        <div class="form-container sign-up">
-            <form id="registration" method="post" action="register"  >
-                <div class="messages">
-                    <?php
-                    if(isset($messages)){
-                        foreach($messages as $message) {
-                            echo $message;
-                        }
-                    }
-                    ?>
-                </div>
-                <h1>Create Account</h1>
-                
-                <span>Use your email for registeration</span>
-                <input name="name" type="text" placeholder="Name">
-                <input type="email" placeholder="Email">
-                <input type="tel" placeholder="Mobile phone number">
-                <input type="password" placeholder="Password" id="password" required>
-                <input type="password" placeholder="Confirm Password" id="confirm_password" required>
-        
-                <button type="submit">Confirm</button>
-                
-            </form>
-        </div>
+<!--        <div class="form-container sign-up">-->
+<!--            <form id="registration" method="post" action="register"  >-->
+<!--                <div class="messages">-->
+<!--                    --><?php
+//                    if(isset($messages)){
+//                        foreach($messages as $message) {
+//                            echo $message;
+//                        }
+//                    }
+//                    ?>
+<!--                </div>-->
+<!--                <h1>Create Account</h1>-->
+<!--                -->
+<!--                <span>Use your email for registeration</span>-->
+<!--                <input name="name" type="text" placeholder="Name">-->
+<!--                <input type="email" placeholder="Email">-->
+<!--                <input type="tel" placeholder="Mobile phone number">-->
+<!--                <input type="password" placeholder="Password" id="password" required>-->
+<!--                <input type="password" placeholder="Confirm Password" id="confirm_password" required>-->
+<!--        -->
+<!--                <button type="submit">Confirm</button>-->
+<!--                -->
+<!--            </form>-->
+<!--        </div>-->
         <div class="form-container sign-in">
             <form class="login" method="POST" action="login">
                 <div class="messages">
@@ -58,6 +79,7 @@
                 <input name="email" type="email" placeholder="Email">
                 <input name="password" type="password" placeholder="Password">
                 <a href="#">Forget Your Password?</a>
+                <a href="register" class="add-info">Don't have an account? Sign up!</a>
                 <button type="submit">Sign In</button>
             </form>
         </div>
