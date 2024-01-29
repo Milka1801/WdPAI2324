@@ -6,6 +6,7 @@ Welcome to the Culinary Horizons Review Repository project! This web application
 1. [Project Overview](#project-overview)
 2. [Key Features](#key-features)
 3. [Technologies Utilized](#technologies-utilized)
+4.  Database Diagram
 
 ## Project Overview
 The Culinary Horizons Review Repository empowers users to contribute and engage with culinary recipes. Users can seamlessly add their own recipes, delete them as needed, and provide comments to enhance the cooking experience. Furthermore, users have the opportunity to explore and discover recipes shared by fellow culinary enthusiasts.
@@ -37,3 +38,5 @@ The project leverages a variety of technologies to deliver a seamless user exper
 
 **Containerization:**
 - Docker
+## Project Overview
+![telegram-cloud-photo-size-2-5312157449278577210-y](https://github.com/Milka1801/WdPAI2324/assets/102184919/44ad9652-0c69-41c8-9054-1adcd2f93320)
