@@ -6,7 +6,7 @@ Welcome to the Culinary Horizons Review Repository project! This web application
 1. [Project Overview](#project-overview)
 2. [Key Features](#key-features)
 3. [Technologies Utilized](#technologies-utilized)
-4. [Database Diagram]
+4. [Database Diagram](#database-diagram)
 
 ## Project Overview
 The Culinary Horizons Review Repository empowers users to contribute and engage with culinary recipes. Users can seamlessly add their own recipes, delete them as needed, and provide comments to enhance the cooking experience. Furthermore, users have the opportunity to explore and discover recipes shared by fellow culinary enthusiasts.
